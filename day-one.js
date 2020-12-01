@@ -202,7 +202,7 @@ const data = `1472
   .split('\n')
   .map(number => +number);
 
-const calculatePuzzlePartOne = () => {
+const solvePuzzlePartOne = () => {
   for (let i = 0; i < data.length; i++) {
     for (let j = i + 1; j < data.length; j++) {
       if (data[i] + data[j] === 2020) {
@@ -212,7 +212,7 @@ const calculatePuzzlePartOne = () => {
   }
 };
 
-const calculatePuzzlePartTwo = () => {
+const solvePuzzlePartTwo = () => {
   for (let i = 0; i < data.length; i++) {
     for (let j = i + 1; j < data.length; j++) {
       for (let k = j + 1; k < data.length; k++) {
@@ -224,8 +224,10 @@ const calculatePuzzlePartTwo = () => {
   }
 };
 
-const answerPuzzlePartOne = calculatePuzzlePartOne();
-const answerPuzzlePartTwo = calculatePuzzlePartTwo();
+const multiplyNumbers = (acc, value) => acc * value;
 
-console.log(answerPuzzlePartOne.reduce((acc, value) => acc * value));
-console.log(answerPuzzlePartTwo.reduce((acc, value) => acc * value));
+const answerPuzzlePartOne = solvePuzzlePartOne();
+const answerPuzzlePartTwo = solvePuzzlePartTwo();
+
+console.log(answerPuzzlePartOne.reduce(multiplyNumbers));
+console.log(answerPuzzlePartTwo.reduce(multiplyNumbers));
