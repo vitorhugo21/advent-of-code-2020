@@ -1,4 +1,4 @@
-1472
+const data = `1472
 1757
 1404
 1663
@@ -197,4 +197,35 @@
 1734
 1833
 1436
-1560
+1560`
+  .trim()
+  .split('\n')
+  .map(number => +number);
+
+const calculatePuzzlePartOne = () => {
+  for (let i = 0; i < data.length; i++) {
+    for (let j = i + 1; j < data.length; j++) {
+      if (data[i] + data[j] === 2020) {
+        return [data[i], data[j]];
+      }
+    }
+  }
+};
+
+const calculatePuzzlePartTwo = () => {
+  for (let i = 0; i < data.length; i++) {
+    for (let j = i + 1; j < data.length; j++) {
+      for (let k = j + 1; k < data.length; k++) {
+        if (data[i] + data[j] + data[k] === 2020) {
+          return [data[i], data[j], data[k]];
+        }
+      }
+    }
+  }
+};
+
+const answerPuzzlePartOne = calculatePuzzlePartOne();
+const answerPuzzlePartTwo = calculatePuzzlePartTwo();
+
+console.log(answerPuzzlePartOne.reduce((acc, value) => acc * value));
+console.log(answerPuzzlePartTwo.reduce((acc, value) => acc * value));
