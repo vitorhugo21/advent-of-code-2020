@@ -3,21 +3,21 @@ const data = readFile(`${__dirname}/day-three-data.txt`).trim().split('\n');
 
 const solvePuzzlePartOne = (stepsRight, stepsDown) => {
   let row = stepsDown;
-	let col = stepsRight;
+  let col = stepsRight;
   let treeCount = 0;
 
   while (row < data.length) {
-		if (col >= data[row].length) {
-			col -= data[row].length;
-		}
+    if (col >= data[row].length) {
+      col -= data[row].length;
+    }
 
-		if (data[row][col] === '#') {
-			treeCount++;
-		}
+    if (data[row][col] === '#') {
+      treeCount++;
+    }
 
-		row += stepsDown;
-		col += stepsRight;
-	}
+    row += stepsDown;
+    col += stepsRight;
+  }
 
   return treeCount;
 }
